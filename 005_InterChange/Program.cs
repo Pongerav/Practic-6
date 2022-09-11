@@ -14,13 +14,16 @@ void PrintArray(int[,] collection)
         for (int j = 0; j <= collection.GetUpperBound(1); j += 1) Console.Write(collection[i,j] + "    ");
     }
 }
-
-double SrArifmeth(int[,] collection,int i)
+void InterChange(int[,] array)
 {
-    double result = 0;
-    for (int j = 0; j <= collection.GetUpperBound(0); j++) result += collection[j,i];
-    result = result / (collection.GetUpperBound(0) + 1);
-    return result;
+    int poslednee = array.GetUpperBound(0);
+    int x = 0;
+    for (int i = 0; i <= array.GetUpperBound(1); i++)
+    {
+        x = array[0,i];
+        array[0,i] = array[poslednee,i];
+        array[poslednee,i] = x;
+    }
 }
 
 Console.WriteLine("Введите количество строчек массива");
@@ -32,7 +35,5 @@ int[,] massiv = new int[m,n];
 FillArray(massiv);
 PrintArray(massiv);
 Console.WriteLine();
-for (int i = 0; i <= massiv.GetUpperBound(1); i += 1)
-{
-    Console.WriteLine($"Среднее арифметическое {i+1}ой колонны = {SrArifmeth(massiv,i)}");
-}
+InterChange(massiv);
+PrintArray(massiv);
