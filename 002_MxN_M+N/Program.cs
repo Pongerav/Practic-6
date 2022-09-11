@@ -1,4 +1,4 @@
-﻿void FillArrayFloat(int[,] array)
+﻿void FillArray(int[,] array)
 {
     for (int i = 0; i <= array.GetUpperBound(0); i++)
     {
@@ -20,5 +20,5 @@ Console.WriteLine("Введите количество столбцов масс
 int n = int.Parse(Console.ReadLine() ?? "0");
 
 int[,] massiv = new int[m,n];
-FillArrayFloat(massiv);
+FillArray(massiv);
 PrintArray(massiv);
